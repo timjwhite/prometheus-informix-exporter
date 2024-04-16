@@ -1,32 +1,27 @@
-# Informix Exporter Prometheus
+# Informix Exporter for Prometheus
 
-Prometheus exporter para varias metricas de Informix escrito en GO. 
+Prometheus exporter for various Informix metrics, written in Go.
 
+### Prerequisites 📋
 
+Docker and docker-compose are required.
 
+### Installation 🔧
 
-### Pre-requisitos 📋
+The installation will be carried out using Docker and a series of configuration files.
 
-Es necesario Docker y docker-compose.
+In the `./exporter/sqlhosts` file, add the Informix instances that you want to monitor in the same way as you would in the Informix `sqlhosts` file.
 
-
-
-### Instalación 🔧
-
-La instalacion se realizara mediante docker y una serie de ficheros de configuración.
-
-En el fichero ./exporter/sqlhosts añadimos las instancias de Informix que queremos Monitorizar de la misma manera 
-que si fuese el sqlhosts de Informix
-
-./export/sqlhosts
-```
+**File:** `./export/sqlhosts`
+```plaintext
 #Server         Protocol         Host           Port
 
-prueba		onsoctcp	192.168.1.50	1527
-prueba2		onsoctcp	192.168.1.50	1530
+prueba        onsoctcp    192.168.1.50    1527
+prueba2       onsoctcp    192.168.1.50    1530
+
 
 ```
-En el fichero ./exporter/odbc.ini configuramos el ODBC
+In the ./exporter/odbc.ini file, configure the ODBC.
 
 
 ```
@@ -49,8 +44,8 @@ pwd=informix
 
 ```
 
-El fichero ./exporter/config.yaml lo utilizara el exporter para leer los datos de configuracion
-Ejemplo:
+The ./exporter/config.yaml file will be used by the exporter to read the configuration data.
+Example:
 
 ```
 ---
@@ -70,9 +65,9 @@ custom:
 
 ```
 
-La configuracion de prometheus se encuentra en ./prometheus
+The Prometheus configuration is located in ./prometheus.
 
-Se puede cambiar el puerto donde se quiere que escuche el exporter.
+You can change the port where you want the exporter to listen.
 
 ```
 - job_name: 'informix'
@@ -88,7 +83,7 @@ Se puede cambiar el puerto donde se quiere que escuche el exporter.
 
 
 
-## Arranque del sistema ⚙️
+## System Startup ⚙️
 
 ```
 docker-compose up -d
@@ -97,7 +92,7 @@ docker-compose up -d
 
 
 
-## Autores ✒️
+## Authors ✒️
 
 
 
@@ -106,9 +101,3 @@ docker-compose up -d
 
 
 
-
-
-
-
----
-⌨️ con ❤️ por [anmartsan](a.martinez@scmsi.es) 😊
